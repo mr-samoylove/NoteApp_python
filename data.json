@@ -1,0 +1,32 @@
+[
+    {
+        "name": "note 1",
+        "creation_date": "2023-02-08 19:38",
+        "last_modified": "2023-02-08 19:38",
+        "text": "this is note 1\n"
+    },
+    {
+        "name": "note 2",
+        "creation_date": "2023-02-08 19:38",
+        "last_modified": "2023-02-08 19:38",
+        "text": "this is \nnote 2\n"
+    },
+    {
+        "name": "note 3",
+        "creation_date": "2023-02-08 19:39",
+        "last_modified": "2023-02-08 19:39",
+        "text": "woweee it works! {great!}efs\n"
+    },
+    {
+        "name": "note 4",
+        "creation_date": "2023-02-08 20:06",
+        "last_modified": "2023-02-08 20:06",
+        "text": "sfhzdrjgn\n"
+    },
+    {
+        "name": "note 5",
+        "creation_date": "2023-02-08 20:09",
+        "last_modified": "2023-02-08 20:09",
+        "text": "test\n"
+    }
+]
