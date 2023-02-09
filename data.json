@@ -1,62 +1,51 @@
 [
     {
+        "id": 1,
         "name": "note 1",
         "creation_date": "2023-02-08 19:38:10",
         "last_modified": "2023-02-08 19:38:10",
         "text": "this is note 1\n"
     },
     {
+        "id": 2,
         "name": "note 2",
         "creation_date": "2023-02-08 19:38:11",
         "last_modified": "2023-02-08 19:38:11",
         "text": "this is \nnote 2\n"
     },
     {
-        "name": "note 3",
-        "creation_date": "2023-02-08 19:39:10",
-        "last_modified": "2023-02-08 19:39:10",
-        "text": "woweee it works! {great!}efs\n"
-    },
-    {
+        "id": 4,
         "name": "note 4 - edited",
         "creation_date": "2023-02-08 20:06:10",
-        "last_modified": "2023-02-09 16:10:55",
-        "text": "this note is edited\nthree times\n"
+        "last_modified": "2023-02-09 17:17:36",
+        "text": "this note is edited\nthree times\n\n"
     },
     {
+        "id": 5,
         "name": "note 5",
-        "creation_date": "2023-02-08 20:09:10",
-        "last_modified": "2023-02-08 20:09:10",
-        "text": "test\n"
+        "creation_date": "2023-02-09 17:06:44",
+        "last_modified": "2023-02-09 17:06:44",
+        "text": "lefkthis is note 5\n"
     },
     {
-        "name": "note6-edited2",
-        "creation_date": "2023-02-09 12:57:10",
-        "last_modified": "2023-02-09 16:16:38",
-        "text": "this note is edited four times\n\n\n"
+        "id": 6,
+        "name": "note 6 -edited",
+        "creation_date": "2023-02-09 17:06:58",
+        "last_modified": "2023-02-09 17:14:07",
+        "text": "This text is edited\n"
     },
     {
+        "id": 8,
+        "name": "note 8",
+        "creation_date": "2023-02-09 17:13:47",
+        "last_modified": "2023-02-09 17:13:47",
+        "text": "some text\n"
+    },
+    {
+        "id": 9,
         "name": "note 9",
-        "creation_date": "2023-02-09 14:25:10",
-        "last_modified": "2023-02-09 14:25:10",
-        "text": "nflsrnf\n"
-    },
-    {
-        "name": "note10",
-        "creation_date": "2023-02-09 14:26:10",
-        "last_modified": "2023-02-09 14:26:10",
-        "text": "he said \"wow\"!\n"
-    },
-    {
-        "name": "note11",
-        "creation_date": "2023-02-09 14:27:10",
-        "last_modified": "2023-02-09 16:43:08",
-        "text": "And i replied 'no way man!' lol\n\n"
-    },
-    {
-        "name": "note 12",
-        "creation_date": "2023-02-09 14:37:17",
-        "last_modified": "2023-02-09 14:37:17",
-        "text": "fzseff\n"
+        "creation_date": "2023-02-09 17:14:28",
+        "last_modified": "2023-02-09 17:14:28",
+        "text": "new text\n"
     }
 ]

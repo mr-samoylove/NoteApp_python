@@ -2,26 +2,24 @@ import json
 import os
 from datetime import datetime
 
-from src.constants import date_format, data_filename, json_encoding
+from src.constants_and_globals import *
 
 
-def update_json(note: list, new_name='default_name', new_text='default_text', delete=False, read=False):
+def update_json(target_note_id: int, new_name='default_name', new_text='default_text', delete=False, read=False):
     with open(data_filename, 'r', encoding=json_encoding) as f:
         all_notes = list(json.load(f))
     for old_note in all_notes:
-        if old_note['name'] == note[0] \
-                and old_note['creation_date'] == note[1] \
-                and old_note['last_modified'] == note[2]:
+        if old_note['id'] == target_note_id:
             if read:
                 return old_note['name'], old_note['text']
             elif delete:
                 all_notes.remove(old_note)
-                print(f"{note[0]} successfully deleted")
+                print(f"Note with ID:{target_note_id} is successfully deleted")
             else:
                 old_note['name'] = new_name
                 old_note['last_modified'] = datetime.now().strftime(date_format)
                 old_note['text'] = new_text
-                print(f"{note[0]} successfully edited")
+                print(f"Note with ID:{target_note_id} is successfully edited")
             break
     else:
         print("No such note has been found in data while reading data")
@@ -30,7 +28,9 @@ def update_json(note: list, new_name='default_name', new_text='default_text', de
 
 
 def append_to_json(name, text):
-    new_note = dict(name=name, creation_date=datetime.now().strftime(date_format),
+    global LAST_USED_MAX_ID
+    LAST_USED_MAX_ID += 1
+    new_note = dict(id=LAST_USED_MAX_ID, name=name, creation_date=datetime.now().strftime(date_format),
                     last_modified=datetime.now().strftime(date_format), text=text)
 
     if os.path.isfile(data_filename) is False:
@@ -56,5 +56,6 @@ def import_from_json():
     else:
         with open(data_filename, 'r', encoding='utf-8') as f:
             all_notes = json.load(f)
+        global LAST_USED_MAX_ID
+        LAST_USED_MAX_ID = max(note['id'] for note in all_notes)
         return all_notes
-

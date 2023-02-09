@@ -9,7 +9,7 @@ class Buttons:
     def __init__(self, frame, table):
         self.table = table
 
-        self.note_selected = None
+        self.note_id_selected = None
         table.tree.bind("<<TreeviewSelect>>", lambda _: self.init_selection(table))
 
         self.creation_button = ttk.Button(frame, text="Create new note", command=self.edit)
@@ -20,25 +20,24 @@ class Buttons:
         self.edit_button.pack()
 
         self.delete_button = ttk.Button(frame, text="Delete note", state=DISABLED,
-                                      command=lambda: [src.Data_manager.update_json(self.note_selected, delete=True),
-                                                       self.edit_button.configure(state=DISABLED),
-                                                       self.delete_button.configure(state=DISABLED),
-                                                       self.table.refresh()])
+                                        command=lambda: [
+                                            src.Data_manager.update_json(self.note_id_selected, delete=True),
+                                            self.edit_button.configure(state=DISABLED),
+                                            self.delete_button.configure(state=DISABLED),
+                                            self.table.refresh()])
         self.delete_button.pack()
 
         self.refresh_button = ttk.Button(frame, text="Refresh table", command=table.refresh)
         self.refresh_button.pack()
 
-
-
     def init_selection(self, table):
         if len(table.tree.selection()) > 0:
-            self.note_selected = table.tree.item(table.tree.selection())['values']
+            self.note_id_selected = table.tree.item(table.tree.selection())['values'][0]
             self.edit_button['state'] = NORMAL
             self.delete_button['state'] = NORMAL
-            print("Selected note is:", self.note_selected)
+            print("Selected note ID is:", self.note_id_selected)
         else:
-            self.note_selected = None
+            self.note_id_selected = None
             self.edit_button['state'] = DISABLED
             self.delete_button['state'] = DISABLED
 
@@ -61,7 +60,7 @@ class Buttons:
         if update:
             save_button.configure(
                 command=lambda: [
-                    src.Data_manager.update_json(self.note_selected, entry.get(), word_editor.get("1.0", END)),
+                    src.Data_manager.update_json(self.note_id_selected, entry.get(), word_editor.get("1.0", END)),
                     creation_window.destroy(),
                     self.edit_button.configure(state=DISABLED),
                     self.delete_button.configure(state=DISABLED),
@@ -76,7 +75,7 @@ class Buttons:
         save_button.pack()
 
         if update:
-            name, text = src.Data_manager.update_json(self.note_selected, read=True)
+            name, text = src.Data_manager.update_json(self.note_id_selected, read=True)
             entry.insert(0, name)
             word_editor.insert(INSERT, text)
             word_editor.focus()
